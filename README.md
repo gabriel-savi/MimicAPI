@@ -1,4 +1,4 @@
-# CursoWebAPI
+# MimicAPI
  
 Criação de API para ser utilizada pelo aplicativo Mimic que será desenvolvido para possibilitar usuários de jogarem o famoso jogo da Mímica.
 A API é desenvolvido em C# usando .Net Core e MVC.
