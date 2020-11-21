@@ -7,7 +7,7 @@ using appMimicAPI.Database;
 
 namespace appMimicAPI.Migrations
 {
-    [DbContext(typeof(MimicContext))]
+    [DbContext(typeof(IPalavraRepository))]
     partial class MimicContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -8,7 +8,7 @@ using appMimicAPI.Database;
 
 namespace appMimicAPI.Migrations
 {
-    [DbContext(typeof(MimicContext))]
+    [DbContext(typeof(IPalavraRepository))]
     [Migration("20201109234154_BancoInicial")]
     partial class BancoInicial
     {

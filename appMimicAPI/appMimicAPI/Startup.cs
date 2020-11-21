@@ -11,6 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using appMimicAPI.Repositories;
+using appMimicAPI.Repositories.Contracts;
+using AutoMapper;
+using appMimicAPI.Helpers;
 
 namespace appMimicAPI
 {
@@ -18,11 +22,20 @@ namespace appMimicAPI
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MimicContext>(opt =>
+            #region AutoMapper configuração
+            var config = new MapperConfiguration(cfg => {
+                cfg.AddProfile(new DTOMapperProfile());
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+            #endregion
+
+            services.AddDbContext<Database.IPalavraRepository>(opt =>
             {
                 opt.UseSqlite("Data Source=Database\\Mimic.db");
             });
             services.AddControllers();
+            services.AddScoped<Repositories.Contracts.IPalavraRepository, PalavraRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

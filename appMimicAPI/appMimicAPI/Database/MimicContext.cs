@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace appMimicAPI.Database
 {
-    public class MimicContext : DbContext
+    public class IPalavraRepository : DbContext
     {
-        public MimicContext(DbContextOptions<MimicContext> options) : base(options)
+        public IPalavraRepository(DbContextOptions<IPalavraRepository> options) : base(options)
         {
 
         }
